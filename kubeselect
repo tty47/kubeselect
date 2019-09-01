@@ -337,7 +337,7 @@ function select_option {
     return $selected
 }
 
-mapfile -t available_contexts < <( kubectl config get-clusters|awk '{if (NR!=1) {print}}' )
+mapfile -t available_contexts < <( kubectl config get-contexts -oname )
 
 echo "Select context using up/down keys and enter to confirm:"
 echo
